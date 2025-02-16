@@ -1,0 +1,33 @@
+{
+  "name": "create-nuxt-cli",
+  "version": "0.0.1",
+  "description": "创建 Nuxt3 企业级应用的 CLI 工具",
+  "type": "module",
+  "bin": {
+    "create-nuxt-cli": "./dist/index.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "prompts": "^2.4.2",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/prompts": "^2.4.9",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
