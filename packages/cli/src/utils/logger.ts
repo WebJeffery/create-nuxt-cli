@@ -1,16 +1,36 @@
-import pc from 'picocolors';
+import chalk from 'chalk'
+import ora from 'ora'
 
-export const logger = {
-  info(message: string, ...args: any[]) {
-    console.log(pc.cyan(`✨ ${message}`), ...args);
-  },
-  success(message: string, ...args: any[]) {
-    console.log(pc.green(`✔ ${message}`), ...args);
-  },
-  warn(message: string, ...args: any[]) {
-    console.log(pc.yellow(`⚠ ${message}`), ...args);
-  },
-  error(message: string, ...args: any[]) {
-    console.log(pc.red(`✘ ${message}`), ...args);
+class Logger {
+  private spinner = ora()
+
+  info(message: string) {
+    console.log(chalk.blue('ℹ'), message)
   }
-}; 
+
+  success(message: string) {
+    console.log(chalk.green('✔'), message)
+  }
+
+  warn(message: string) {
+    console.log(chalk.yellow('⚠'), message)
+  }
+
+  error(message: string) {
+    console.log(chalk.red('✖'), message)
+  }
+
+  startSpinner(text: string) {
+    this.spinner.start(text)
+  }
+
+  stopSpinner() {
+    this.spinner.stop()
+  }
+
+  updateSpinner(text: string) {
+    this.spinner.text = text
+  }
+}
+
+export const logger = new Logger() 
